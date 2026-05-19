@@ -6,34 +6,123 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="mock business project for design 101" content="" />
   <link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DynaPuff:wdth@87.5&family=Syne+Mono&display=swap" rel="stylesheet">
 
 <style>
-    .parent {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 1fr);
-    gap: 8px;
-    background-color: #FCAF9F;
-}
-    
-.div2 {
-    grid-column: span 10 / span 10;
-    grid-row: span 2 / span 2;
-    grid-column-start: 2;
+
+    /* CSS HEX */
+    :root {
+        --lavender: #d8d2e1ff;
+        --rosy-taupe: #b88e8dff;
+        --wine-plum: #582630ff;
+        --night-bordeaux: #58111aff;
+        --ink-black: #031927ff;
+    }
+
+
+.dynapuff-<uniquifier> {
+  font-family: "DynaPuff", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 434;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 87.5;
 }
 
+.syne-mono-regular {
+  font-family: "Syne Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+body {
+    margin: 0;
+    background-color: var(--lavender);
+
+}
+
+.parent {
+margin: 1%;
+display: grid;
+grid-template-columns: repeat(12, 1fr);
+grid-template-rows: repeat(12, 80px);
+gap: 0.3rem;
+background-color: transparent;
+padding: 0.3rem;
+
+}
+/*header*/
+.div2 {
+grid-column: span 10 / span 10;
+grid-column-start: 2;
+grid-row: span 2 / span 2;
+grid-row-start: 1;
+margin-top: 0.3rem;
+margin-bottom: 0.3rem;
+background-color: var(--rosy-taupe);
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: "Dynapuff", system-ui;
+color: var(--ink-black);
+border-radius: 20px;
+overflow: hidden;
+z-index: 10;
+}
+
+.div2 h1 {
+margin: 0;
+}
+/*main box*/
 .div3 {
 grid-column: span 8 / span 8;
 grid-row: span 10 / span 10;
 grid-column-start: 4;
 grid-row-start: 3;
+margin-top: 0.3rem;
+margin-bottom: 0.3rem;
+background-color:var(--wine-plum);
+padding: 1rem;
+font-family: "Syne Mono", monospace;
+color: var(--ink-black);
+border-radius: 20px;
 }
-
+/*sidebar*/
 .div4 {
 grid-column: span 2 / span 2;
 grid-row: span 10 / span 10;
 grid-column-start: 2;
- grid-row-start: 3;
+grid-row-start: 3;
+margin-top: 0.3rem;
+margin-bottom: 0.3rem;
+background-color: var(--wine-plum);
+padding: 1rem;
+font-family: "Syne Mono", monospace;
+color: var(--ink-black);
+border-radius: 20px;
+}
+
+.upperboxholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-color: var(--rosy-taupe);
+    width: 100%;
+    padding: 0.8rem;
+    gap: 0.6rem;
+}
+
+.upperbox {
+    background-color: var(--night-bordeaux);
+    width: 75px;
+    height: 75px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 </style>
 </head>
@@ -41,15 +130,51 @@ grid-column-start: 2;
     <div class="parent">
 
         <div class="div2">  
-            <h1>Mock Business</h1>
+            <h1>Club Bugg's Web Design Services</h1>
     </div>
     
     <div class="div3">
-        3
+        <h3>Services offered:</h3>
+        <article>
+            <ul>
+                <li>
+                    Full site design and development
+                </li>
+
+                <li>
+                    Hand drawn/Digitally ilustrated graphics
+                </li>
+
+                <li>
+                    Logo design
+                </li>
+
+                <li>
+                Animated/interactive web elements
+                </li>
+
+            </ul>
+            </article>
+            <div class="upperboxholder">
+
+                <div class="upperbox">
+                    <h1>one</h1>
+                </div> 
+                        
+                <div class="upperbox">
+                    <h1>two</h1>
+                </div>        
+
+                <div class="upperbox">
+                    <h1>three</h1>
+                </div>
+
+            </div>
+        
     </div>
 
     <div class="div4">
-        4
+    <h4>Contact for commissions</h4>
     </div>
 </div>
 </body>
