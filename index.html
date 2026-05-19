@@ -107,22 +107,35 @@ border-radius: 20px;
 
 .upperboxholder {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-    background-color: var(--rosy-taupe);
-    width: 100%;
-    padding: 0.8rem;
-    gap: 0.6rem;
+    flex-direction: row;
+    place-self: stretch auto;
+    background-color: transparent;
+    width: 95%;
+    height: 100%;
+    padding: 3rem;
+    padding-left: 2rem;
+    column-gap: 4rem;
 }
 
 .upperbox {
-    background-color: var(--night-bordeaux);
-    width: 75px;
-    height: 75px;
+    background-color: var(--lavender);
+    width: 30%;
+    height: 35%;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6%;
+}
+
+.imgcard {
+    display:flex
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 3%;
+    padding: 1em;
+    align-items: center;
+    justify-content: center;
 }
 </style>
 </head>
@@ -158,16 +171,20 @@ border-radius: 20px;
             <div class="upperboxholder">
 
                 <div class="upperbox">
-                    <h1>one</h1>
+                    
+                    <div class="imgcard">
+                        <p>hi</p> 
+                    </div>
                 </div> 
                         
                 <div class="upperbox">
-                    <h1>two</h1>
+                    <div class="imgcard">
+                        <p>hi</p> 
+                    </div>
+                    
                 </div>        
 
-                <div class="upperbox">
-                    <h1>three</h1>
-                </div>
+
 
             </div>
         
@@ -175,6 +192,9 @@ border-radius: 20px;
 
     <div class="div4">
     <h4>Contact for commissions</h4>
+    <p>Email: info@clubbuggs.com</p>
+    <p>Phone: (123) 456-7890</p>
+    <p>Please contact us for more information.</p>
     </div>
 </div>
 </body>
