@@ -67,7 +67,7 @@
          font-family: "DynaPuff", system-ui;
          font-variation-settings: "wdth" 87.5;
          }
-         /* --- MAIN BOX (Syne Mono Applied Directly Here) --- */
+         /* --- MAIN BOX */
          .div3 {
          grid-column: span 8 / span 8;
          grid-row: span 10 / span 10;
@@ -82,10 +82,10 @@
          border-radius: 20px;
          display: flex;
          flex-direction: column;
-         /* FORCE SYNE MONO TO RENDER HERE */
+
          font-family: "Syne Mono", monospace;
          }
-         /* --- SIDEBAR (Syne Mono Applied Directly Here) --- */
+         /* --- SIDEBAR --- */
          .div4 {
          grid-column: span 2 / span 2;
          grid-row: span 10 / span 10;
@@ -98,10 +98,10 @@
          padding: 1rem;
          color: var(--ink-black);
          border-radius: 20px;
-         /* FORCE SYNE MONO TO RENDER HERE */
+
          font-family: "Syne Mono", monospace;
          }
-         /* --- PAGE SYSTEM STYLES --- */
+         /*PAGE SYSTEM STYLES*/
          .page {
          display: none; 
          width: 100%;
@@ -147,7 +147,7 @@
          text-align: center;
          margin-top: 0.5rem;
          }
-         /* Pagination controls below the photo cards */
+         /* pages buttons  */
          .pagination-controls {
          display: flex;
          justify-content: center;
@@ -163,7 +163,6 @@
          border-radius: 8px;
          cursor: pointer;
          font-size: 1rem;
-         /* FORCE SYNE MONO FOR NAVIGATION */
          font-family: "Syne Mono", monospace;
          }
          .pagination-controls button:hover {
@@ -192,22 +191,25 @@
          gap: 0.5rem;
          margin-top: 30px;
          }
-         .letters img {
-         height: 100px;
-         width: 100px;
-         }
-         @keyframes pulseAnimation {
-         0%, 100% { transform: scale(1); }
-         50% { transform: scale(1.15); }
-         }
-         .beat:hover {
-         animation-name: pulseAnimation;
-         animation-duration: 1.7s;
-         animation-timing-function: cubic-bezier(0.68,-0.55,0.27,1.55);
-         animation-iteration-count: infinite;
-         animation-direction: alternate-reverse;
-         animation-fill-mode: both;
-         }
+        
+        .letters img {
+        height: 100px;
+        width: 100px;
+        }
+        
+        @keyframes pulseAnimation {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+        }
+        
+        .beat:hover {
+        animation-name: pulseAnimation;
+        animation-duration: 1.7s;
+        animation-timing-function: cubic-bezier(0.68,-0.55,0.27,1.55);
+        animation-iteration-count: infinite;
+        animation-direction: alternate-reverse;
+        animation-fill-mode: both;
+        }
 
         h3 {
             display: block;
@@ -310,8 +312,8 @@
                   </div>
                </div>
             </div>
-            <!-- Page Navigation -->
-            <!-- Page Navigation -->
+            
+            <!-- page nav -->
             <div class="pagination-controls">
                <button onclick="changePage('page1')">1</button>
                <button onclick="changePage('page2')">2</button>
