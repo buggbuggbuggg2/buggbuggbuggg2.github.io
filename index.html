@@ -1,200 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Mock Business</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="mock business project for design 101" content="" />
-  <link rel="icon" href="favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DynaPuff:wdth@87.5&family=Syne+Mono&display=swap" rel="stylesheet">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Mock Business</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <meta name="mock business project for design 101" content="" />
+      <link rel="icon" href="favicon.png">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Syne+Mono&display=swap" rel="stylesheet">
+      <style>
+         /* CSS HEX */
+         :root {
+         --lavender: #d8d2e1ff;
+         --rosy-taupe: #b88e8dff;
+         --wine-plum: #582630ff;
+         --night-bordeaux: #58111aff;
+         --ink-black: #031927ff;
+         }
+         .dynapuff {
+         font-family: "DynaPuff", system-ui;
+         font-optical-sizing: auto;
+         font-style: normal;
+         font-variation-settings:
+         "wdth" 100;
+         }
+         .syne-mono-regular {
+         font-family: "Syne Mono", monospace;
+         font-weight: 400;
+         font-style: normal;
+         }
+         body {
+         margin: 0;
+         background-image: url("bgs/yellowplaid.JPG");
+         background-color: var(--lavender);
+         }
+         .parent {
+         margin: 1%;
+         display: grid;
+         grid-template-columns: repeat(12, 1fr);
+         grid-template-rows: repeat(12, 80px);
+         gap: 0.3rem;
+         background-color: transparent;
+         padding: 0.3rem;
+         }
+         .div2 {
+         grid-column: span 10 / span 10;
+         grid-column-start: 2;
+         grid-row: span 2 / span 2;
+         grid-row-start: 1;
+         margin-top: 0.3rem;
+         margin-bottom: 0.3rem;
+         background-image: url("bgs/yellowpaper.JPG");
+         background-color: var(--rosy-taupe);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         color: var(--ink-black);
+         border-radius: 20px;
+         overflow: hidden;
+         z-index: 10;
+         font-family: "DynaPuff", system-ui;
+         }
+         .div2 h1 {
+         margin: 0;
+         font-family: "DynaPuff", system-ui;
+         font-variation-settings: "wdth" 87.5;
+         }
+         /* --- MAIN BOX (Syne Mono Applied Directly Here) --- */
+         .div3 {
+         grid-column: span 8 / span 8;
+         grid-row: span 10 / span 10;
+         grid-column-start: 4;
+         grid-row-start: 3;
+         margin-top: 0.3rem;
+         margin-bottom: 0.3rem;
+         background-image: url("bgs/yellowpaper.JPG");
+         background-color:var(--wine-plum);
+         padding: 1rem;
+         color: var(--ink-black);
+         border-radius: 20px;
+         display: flex;
+         flex-direction: column;
+         /* FORCE SYNE MONO TO RENDER HERE */
+         font-family: "Syne Mono", monospace;
+         }
+         /* --- SIDEBAR (Syne Mono Applied Directly Here) --- */
+         .div4 {
+         grid-column: span 2 / span 2;
+         grid-row: span 10 / span 10;
+         grid-column-start: 2;
+         grid-row-start: 3;
+         margin-top: 0.3rem;
+         margin-bottom: 0.3rem;
+         background-image: url("bgs/yellowpaper.JPG");
+         background-color: var(--wine-plum);
+         padding: 1rem;
+         color: var(--ink-black);
+         border-radius: 20px;
+         /* FORCE SYNE MONO TO RENDER HERE */
+         font-family: "Syne Mono", monospace;
+         }
+         /* --- PAGE SYSTEM STYLES --- */
+         .page {
+         display: none; 
+         width: 100%;
+         }
+         .page.active {
+         display: block; 
+         }
+         .upperboxholder {
+         display: flex;
+         flex-direction: row;
+         background-color: transparent;
+         width: 95%;
+         height: 240px; 
+         padding: 1.5rem 2rem;
+         column-gap: 4rem;
+         }
+         .upperbox {
+         background-color: var(--lavender);
+         width: 30%;
+         height: 100%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         border-radius: 6%;
+         }
+         .imgcard {
+         display: flex;
+         flex-direction: column;
+         width: 80%;
+         height: 80%;
+         padding: 1em;
+         align-items: center;
+         justify-content: center;
+         }
+         .imgcard img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         border-radius: 3%;
+         }
+         .imgcard p {
+         display: block;
+         text-align: center;
+         margin-top: 0.5rem;
+         }
+         /* Pagination controls below the photo cards */
+         .pagination-controls {
+         display: flex;
+         justify-content: center;
+         gap: 1rem;
+         margin-top: auto; 
+         padding-bottom: 1rem;
+         }
+         .pagination-controls button {
+         background-color: var(--ink-black);
+         color: var(--lavender);
+         border: none;
+         padding: 0.5rem 1rem;
+         border-radius: 8px;
+         cursor: pointer;
+         font-size: 1rem;
+         /* FORCE SYNE MONO FOR NAVIGATION */
+         font-family: "Syne Mono", monospace;
+         }
+         .pagination-controls button:hover {
+         background-color: var(--night-bordeaux);
+         }
+         hr {
+         border:none;
+         color:azure;
+         background-color:azure;
+         height: 0.01em;
+         width:30%;
+         margin-left: 0;
+         }
+         .heart {
+         height: 1rem;
+         aspect-ratio: 1;
+         clip-path: shape(
+         from 50% 91%,
+         line to 90% 50%,
+         arc to 50% 9%  of 1%,
+         arc to 10% 50% of 1%
+         );
+         }
+         .letters {
+         display: block;
+         gap: 0.5rem;
+         margin-top: 30px;
+         }
+         .letters img {
+         height: 100px;
+         width: 100px;
+         }
+         @keyframes pulseAnimation {
+         0%, 100% { transform: scale(1); }
+         50% { transform: scale(1.15); }
+         }
+         .beat:hover {
+         animation-name: pulseAnimation;
+         animation-duration: 1.7s;
+         animation-timing-function: cubic-bezier(0.68,-0.55,0.27,1.55);
+         animation-iteration-count: infinite;
+         animation-direction: alternate-reverse;
+         animation-fill-mode: both;
+         }
 
-<style>
-
-    /* CSS HEX */
-    :root {
-        --lavender: #d8d2e1ff;
-        --rosy-taupe: #b88e8dff;
-        --wine-plum: #582630ff;
-        --night-bordeaux: #58111aff;
-        --ink-black: #031927ff;
-    }
-
-
-.dynapuff {
-  font-family: "DynaPuff", system-ui;
-  font-optical-sizing: auto;
-  font-weight: 434;
-  font-style: normal;
-  font-variation-settings: "wdth" 87.5;
-}
-
-.syne-mono-regular {
-  font-family: "Syne Mono", monospace;
-  font-weight: 400;
-  font-style: normal;
-}
-
-
-body {
-    margin: 0;
-    background-color: var(--lavender);
-}
-
-.parent {
-margin: 1%;
-display: grid;
-grid-template-columns: repeat(12, 1fr);
-grid-template-rows: repeat(12, 80px);
-gap: 0.3rem;
-background-color: transparent;
-padding: 0.3rem;
-}
-
-/*header*/
-.div2 {
-grid-column: span 10 / span 10;
-grid-column-start: 2;
-grid-row: span 2 / span 2;
-grid-row-start: 1;
-margin-top: 0.3rem;
-margin-bottom: 0.3rem;
-background-color: var(--rosy-taupe);
-display: flex;
-align-items: center;
-justify-content: center;
-font-family: "Dynapuff", system-ui;
-color: var(--ink-black);
-border-radius: 20px;
-overflow: hidden;
-z-index: 10;
-}
-
-.div2 h1 {
-margin: 0;
-}
-/*main box*/
-.div3 {
-grid-column: span 8 / span 8;
-grid-row: span 10 / span 10;
-grid-column-start: 4;
-grid-row-start: 3;
-margin-top: 0.3rem;
-margin-bottom: 0.3rem;
-background-color:var(--wine-plum);
-padding: 1rem;
-font-family: "Syne Mono", monospace;
-color: var(--ink-black);
-border-radius: 20px;
-}
-/*sidebar*/
-.div4 {
-grid-column: span 2 / span 2;
-grid-row: span 10 / span 10;
-grid-column-start: 2;
-grid-row-start: 3;
-margin-top: 0.3rem;
-margin-bottom: 0.3rem;
-background-color: var(--wine-plum);
-padding: 1rem;
-font-family: "Syne Mono", monospace;
-color: var(--ink-black);
-border-radius: 20px;
-}
-
-.upperboxholder {
-    display: flex;
-    flex-direction: row;
-    place-self: stretch auto;
-    background-color: transparent;
-    width: 95%;
-    height: 100%;
-    padding: 3rem;
-    padding-left: 2rem;
-    column-gap: 4rem;
-}
-
-.upperbox {
-    background-color: var(--lavender);
-    width: 30%;
-    height: 35%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 6%;
-}
-
-.imgcard {
-    display:flex;
-    width: 80%;
-    height: 80%;
-    object-fit: cover;
-    border-radius: 3%;
-    padding: 1em;
-    align-items: center;
-    justify-content: center;
-}
-
-</style>
+        h3 {
+            display: block;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div class="parent">
-
-        <div class="div2">  
-            <h1>Club Bugg's Web Design Services</h1>
-    </div>
-    
-    <div class="div3">
-        <h3>Services offered:</h3>
-        <article>
-            <ul>
-                <li>
-                    Full site design and development
-                </li>
-
-                <li>
-                    Hand drawn/Digitally ilustrated graphics
-                </li>
-
-                <li>
-                    Logo design
-                </li>
-
-                <li>
-                Animated/interactive web elements
-                </li>
-
-            </ul>
-            </article>
-            <div class="upperboxholder">
-
-                <div class="upperbox">
-                    
-                    <div class="imgcard">
-                        <p>hi</p> 
-                    </div>
-                </div> 
-                        
-                <div class="upperbox">
-                    <div class="imgcard">
-                        <p>hi</p> 
-                    </div>
-                    
-                </div>        
-
-
-
+        <div class="div2">
+            <div class="letters">
+            <img src="letters/c.png" alt="letter">
+            <img src="letters/L.png" alt="letter">
+            <img src="letters/u.png" alt="letter">
+            <img src="letters/b1.png" alt="letter">
+            <img src="letters/b2.png" alt="letter">
+            <img src="letters/u.png" alt="letter">
+            <img src="letters/g1.png" alt="letter">
+            <img src="letters/g2.png" alt="letter">
             </div>
-        
-    </div>
 
-    <div class="div4">
-    <h4>Contact for commissions</h4>
-    <p>Email: info@clubbuggs.com</p>
-    <p>Phone: (123) 456-7890</p>
-    <p>Please contact us for more information.</p>
-    </div>
-</div>
-</body>
+         </div>
+         <div class="div3">
+            <h3>Services offered:</h3>
+            <hr>
+            <article>
+               <ul>
+                  <li> Full site design and development </li>
+                  <li> Hand drawn/Digitally ilustrated graphics </li>
+                  <li> Logo design </li>
+                  <li> Animated/interactive web elements </li>
+               </ul>
+            </article>
+            
+            <!-- Page 1 -->
+            <div id="page1" class="page active">
+               <div class="upperboxholder">
+                  <div class="upperbox">
+                     <div class="imgcard">
+                        <img src="examples/buggscorner.png" alt="buggs corner example img">
+                        <p>Creative themed layouts</p>
+                     </div>
+                  </div>
+                  <div class="upperbox">
+                     <div class="imgcard">
+                        <img src="examples/home.png" alt="homepage example img">
+                        <p>Highly customized pages</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- Page 2 -->
+            <div id="page2" class="page">
+               <div class="upperboxholder">
+                  <div class="upperbox">
+                     <div class="imgcard">
+                        <img src="examples/bug.png" alt="logo design example img">
+                        <p>Custom Vector Logos</p>
+                     </div>
+                  </div>
+                  <div class="upperbox">
+                     <div class="imgcard">
+                        <img src ="bgs/yellowburlap.jpg" alt="interactive element example img" class="heart beat">
+                        <p>Interactive Assets</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- Page 3 -->
+            <div id="page3" class="page">
+               <div class="upperboxholder">
+                  <div class="upperbox">
+                     <div class="imgcard">
+                        <img src="examples/illustration1.png" alt="illustration example 1">
+                        <p>Digital Illustration</p>
+                     </div>
+                  </div>
+                  <div class="upperbox">
+                     <div class="imgcard">
+                        <img src="examples/illustration2.png" alt="illustration example 2">
+                        <p>Hand-Drawn Sketches</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- Page 4 -->
+            <div id="page4" class="page">
+               <div class="upperboxholder">
+                  <div class="upperbox">
+                     <div class="imgcard">
+                        <img src="examples/ui-design.png" alt="ui design example">
+                        <p>User Interface Wireframes</p>
+                     </div>
+                  </div>
+                  <div class="upperbox">
+                     <div class="imgcard">
+                        <img src="examples/seo-dev.png" alt="seo example">
+                        <p>SEO Optimization</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- Page Navigation -->
+            <!-- Page Navigation -->
+            <div class="pagination-controls">
+               <button onclick="changePage('page1')">1</button>
+               <button onclick="changePage('page2')">2</button>
+               <button onclick="changePage('page3')">3</button>
+               <button onclick="changePage('page4')">4</button>
+            </div>
+         </div>
+         <div class="div4">
+            <h3>Contact for commissions</h3>
+            <hr>
+            <h4>Email:</h4>
+            <p>info@clubbuggs.com</p>
+            <p>Phone: (123) 456-7890</p>
+            <p>Please contact us for more information.</p>
+         </div>
+      </div>
+      <script>
+         function changePage(pageId) {
+             const pages = document.querySelectorAll('.page');
+             pages.forEach(page => page.classList.remove('active'));
+             document.getElementById(pageId).classList.add('active');
+         }
+      </script>
+   </body>
 </html>
