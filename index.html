@@ -216,40 +216,42 @@
         }
 
 
-        /*anchors the sticker*/
-         .parent-container {
-         position: relative; 
-         }
+        
+   .stickybox {
+   position: relative; 
+   }
 
    .sticker1 {
    position: absolute;
-   top: 0;
-   right: 0; 
-   width: 15%;
-   max-width: 80px;
-   min-width: 40px;
+   top: -300px;
+   right:-10px; 
+   width: 30%;
    height: auto; 
    pointer-events: none; 
+   z-index: 1000;
    }
 
    .sticker2 {
    position: absolute;
-   bottom: 0;
-   left: 0;
+   right: 0;
+   top: 0;
    width: 15%;
-   max-width: 80px;
-   min-width: 40px;
+   max-width: 200px;
+   min-width: auto;
    height: auto; 
    pointer-events: none;
+   z-index: 1000;
    }
 
 
 
-    </style>
+   </style>
 </head>
 <body>
-    <div class="parent">
-        <div class="div2">
+
+
+   <div class="parent">
+      <div class="div2">
             <div class="letters">
             <img src="letters/c.png" alt="letter">
             <img src="letters/L.png" alt="letter">
@@ -262,6 +264,12 @@
             </div>
 
          </div>
+
+         <div class="stickybox>
+      <img src="stickies/igari.png" alt="sticker" class="sticker1">
+   </div>
+         
+
          <div class="div3">
             <h3>Services offered:</h3>
             <hr>
@@ -321,7 +329,7 @@
                   <div class="upperbox">
                      <div class="imgcard">
                         <img src="examples/illustration2.png" alt="illustration example 2">
-                        <p>something idfk</p>
+                        <p>Trusted Designers with Impressive Portfolios</p>
                      </div>
                   </div>
                </div>
@@ -335,7 +343,7 @@
                         <p>Uuhhhhh lowkey idk </p>
                      </div>
                   </div>
-                
+
                   <div class="upperbox">
                      <div class="imgcard">
                         <img src="examples/seo-dev.png" alt="seo example">
@@ -364,12 +372,18 @@
          </div>
       </div>
 
+      <div class="stickybox">
+         <img src="stickies/igari.png" alt="sticker" class="sticker1">
+      </div>
+      
+      
+
       <!--page nav script-->
       <script>
          function changePage(pageId) {
-             const pages = document.querySelectorAll('.page');
-             pages.forEach(page => page.classList.remove('active'));
-             document.getElementById(pageId).classList.add('active');
+         const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
          }
       </script>
    </body>
