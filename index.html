@@ -214,6 +214,37 @@
         h3 {
             display: block;
         }
+
+
+        /*anchors the sticker*/
+         .parent-container {
+         position: relative; 
+         }
+
+   .sticker1 {
+   position: absolute;
+   top: 0;
+   right: 0; 
+   width: 15%;
+   max-width: 80px;
+   min-width: 40px;
+   height: auto; 
+   pointer-events: none; 
+   }
+
+   .sticker2 {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 15%;
+   max-width: 80px;
+   min-width: 40px;
+   height: auto; 
+   pointer-events: none;
+   }
+
+
+
     </style>
 </head>
 <body>
@@ -332,6 +363,8 @@
             <p>Please contact us for more information.</p>
          </div>
       </div>
+
+      <!--page nav script-->
       <script>
          function changePage(pageId) {
              const pages = document.querySelectorAll('.page');
